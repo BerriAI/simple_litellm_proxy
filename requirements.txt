@@ -1,6 +1,4 @@
-# LITELLM PROXY DEPENDENCIES #
-anyio==4.2.0 # openai + http req.
+fastapi
+uvicorn
+uuid
 litellm
-openai>=1.0.0 # openai req. 
-fastapi>=0.109.1 # server dep
-pydantic>=2.5 # openai req. 
