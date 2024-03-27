@@ -23,7 +23,7 @@ app.add_middleware(
 litellm_router = litellm.Router(
     model_list=[
         {
-            "model_name": "anything",  # model alias -> loadbalance between models with same `model_name`
+            "model_name": "fake-openai-endpoint",  # model alias -> loadbalance between models with same `model_name`
             "litellm_params": {  # params for litellm completion/embedding call
                 "model": "openai/anything",  # actual model name
                 "api_key": "sk-1234",
@@ -44,15 +44,7 @@ async def completion(request: Request):
     body_str = body.decode()
     data = json.loads(body_str)
 
-    response = await litellm_router.acompletion(
-        model="anything",
-        messages=[
-            {
-                "role": "user",
-                "content": "hello who are you",
-            }
-        ],
-    )
+    response = await litellm_router.acompletion(**data)
 
     return response
 
