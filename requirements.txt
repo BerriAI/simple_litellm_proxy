@@ -1,5 +1,6 @@
 uvicorn==0.29.0 # server dep
 openai
+fastapi
 litellm
 
 # # LITELLM PROXY DEPENDENCIES #
