@@ -8,6 +8,7 @@ from fastapi.security import OAuth2PasswordBearer
 from fastapi.middleware.cors import CORSMiddleware
 import uuid
 import litellm
+import json
 
 app = FastAPI()
 
@@ -38,6 +39,10 @@ litellm_router = litellm.Router(
 @app.post("/v1/chat/completions")
 async def completion(request: Request):
     # this proxy uses the OpenAI SDK to call a fixed endpoint
+    data = {}
+    body = await request.body()
+    body_str = body.decode()
+    data = json.loads(body_str)
 
     response = await litellm_router.acompletion(
         model="anything",
