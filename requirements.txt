@@ -4,20 +4,19 @@ fastapi==0.110.0
 litellm
 
 # # LITELLM PROXY DEPENDENCIES #
-# anyio==4.2.0 # openai + http req.
-# backoff==2.2.1 # server dep
-# aiohttp==3.9.3 # for network calls
-# tokenizers==0.14.0 # for calculating usage
-# click==8.1.7 # for proxy cli 
-# jinja2==3.1.3 # for prompt templates
-# tenacity==8.2.3  # for retrying requests, when litellm.num_retries set
+anyio==4.3.0 # openai + http req.
+aiohttp==3.9.3 # for network calls
+backoff==2.2.1 # server dep
+pydantic==2.6.4 # openai req.
+tokenizers==0.15.2 # for calculating usage
+click==8.1.7 # for proxy cli 
+jinja2==3.1.3 # for prompt templates
+tenacity==8.2.3  # for retrying requests, when litellm.num_retries set
 
-# ### LITELLM PACKAGE DEPENDENCIES
-# python-dotenv==1.0.1 # for env 
-# certifi>=2023.7.22 # [TODO] clean up 
-# tiktoken>=0.4.0 # for calculating usage
-# importlib-metadata>=6.8.0 # for random utils
-# pydantic>=2.5 # openai req. 
-# pyyaml>=6.0.1 # server dep
-# litellm
+### LITELLM PACKAGE DEPENDENCIES
+python-dotenv==1.0.1 # for env 
+certifi>=2023.7.22 # [TODO] clean up 
+tiktoken>=0.4.0 # for calculating usage
+importlib-metadata>=6.8.0 # for random utils 
+pyyaml>=6.0.1 # server dep
 # ####
