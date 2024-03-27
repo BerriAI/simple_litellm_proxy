@@ -10,6 +10,7 @@ import uuid
 import litellm
 import json
 import ast
+import orjson
 
 app = FastAPI()
 
@@ -42,11 +43,11 @@ async def completion(request: Request):
     # this proxy uses the OpenAI SDK to call a fixed endpoint
     data = {}
     body = await request.body()
-    body_str = body.decode()
     try:
-        data = ast.literal_eval(body_str)
+        data = orjson.loads(body)
     except:
-        data = json.loads(body_str)
+        body_str = body.decode()
+        data = ast.literal_eval(body_str)
 
     response = await litellm_router.acompletion(**data)
 
