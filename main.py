@@ -9,6 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import uuid
 import litellm
 import json
+import ast
 
 app = FastAPI()
 
@@ -42,7 +43,10 @@ async def completion(request: Request):
     data = {}
     body = await request.body()
     body_str = body.decode()
-    data = json.loads(body_str)
+    try:
+        data = ast.literal_eval(body_str)
+    except:
+        data = json.loads(body_str)
     response = await litellm_router.acompletion(
         model="fake-openai-endpoint",
         messages=[
