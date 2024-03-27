@@ -10,6 +10,8 @@ import uuid
 import litellm
 import json
 import ast
+import openai
+from openai import AsyncOpenAI
 
 app = FastAPI()
 
@@ -50,6 +52,29 @@ async def completion(request: Request):
             }
         ]
     )
+    return response
+
+
+litellm_client = AsyncOpenAI(
+    base_url="https://my-app.tasslexyz.workers.dev/",
+    api_key="sk-1234",
+)
+
+# for completion
+@app.post("/openai/chat/completions")
+async def completion(request: Request):
+    # this proxy uses the OpenAI SDK to call a fixed endpoint
+
+    response = await litellm_client.chat.completions.create(
+        model="anything",
+        messages=[
+            {
+                "role": "user",
+                "content": "hello who are you",
+            }
+        ],
+    )
+
     return response
 
 
