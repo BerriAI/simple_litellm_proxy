@@ -43,16 +43,10 @@ async def completion(request: Request):
     data = {}
     body = await request.body()
     data = json.loads(body)
-    response = await litellm_router.acompletion(
-        model="fake-openai-endpoint",
-        messages=[
-            {
-                "role": "user",
-                "content": "This is a test",
-            }
-        ]
-    )
 
+
+    ### ROUTE THE REQUEST ###
+    response = await litellm_router.acompletion(**data)
     return response
 
 
