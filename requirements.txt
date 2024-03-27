@@ -1,5 +1,5 @@
 uvicorn==0.29.0 # server dep
-openai
+openai>=1.0.0 # openai req. 
 fastapi==0.110.0
 litellm
 
@@ -17,7 +17,6 @@ litellm
 # certifi>=2023.7.22 # [TODO] clean up 
 # tiktoken>=0.4.0 # for calculating usage
 # importlib-metadata>=6.8.0 # for random utils
-# openai>=1.0.0 # openai req. 
 # pydantic>=2.5 # openai req. 
 # pyyaml>=6.0.1 # server dep
 # litellm
