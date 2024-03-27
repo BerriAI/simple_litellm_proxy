@@ -28,7 +28,7 @@ litellm_router = litellm.Router(
             "litellm_params": {  # params for litellm completion/embedding call
                 "model": "openai/anything",  # actual model name
                 "api_key": "sk-1234",
-                "api_base": "https://exampleopenaiendpoint-production.up.railway.app/",
+                "api_base": "https://my-app.tasslexyz.workers.dev/",
             },
         }
     ]
