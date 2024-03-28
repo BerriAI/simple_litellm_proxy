@@ -30,7 +30,7 @@ litellm_router = litellm.Router(
             "litellm_params": {  # params for litellm completion/embedding call
                 "model": "openai/anything",  # actual model name
                 "api_key": "sk-1234",
-                "api_base": "https://my-app.tasslexyz.workers.dev/",
+                "api_base": "https://openai-endpoint.ishaanjaffer0324.workers.dev/",
             },
         }
     ]
@@ -56,7 +56,7 @@ async def completion(request: Request):
 
 
 litellm_client = AsyncOpenAI(
-    base_url="https://my-app.tasslexyz.workers.dev/",
+    base_url="https://openai-endpoint.ishaanjaffer0324.workers.dev/",
     api_key="sk-1234",
 )
 
