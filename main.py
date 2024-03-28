@@ -43,15 +43,14 @@ litellm_router = litellm.Router(
 async def completion(request: Request):
     # this proxy uses the OpenAI SDK to call a fixed endpoint
     ### ROUTE THE REQUEST ###
-    response = await litellm_router.acompletion(
-        model="fake-openai-endpoint",
-        messages=[
-            {
-                "role": "user",
-                "content": "Hello, I'm a fake OpenAI endpoint. I'm doing fine, how are you?",
-            }
-        ]
-    )
+    data = {}
+    body = await request.body()
+    body_str = body.decode()
+    try:
+        data = ast.literal_eval(body_str)
+    except:
+        data = json.loads(body_str)
+    response = await litellm_router.acompletion(**data)
     return response
 
 
