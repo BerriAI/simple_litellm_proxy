@@ -79,7 +79,7 @@ litellm_router = litellm.Router(
 @app.post("/chat/completions")
 @app.post("/v1/chat/completions")
 async def completion(request: Request):
-    # this proxy uses the OpenAI SDK to call a fixed endpoint
+    # this proxy uses the OpenAI SDK to call a fixed endpoint - 
     ### ROUTE THE REQUEST ###
     data = {}
     body = await request.body()
