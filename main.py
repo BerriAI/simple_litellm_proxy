@@ -33,45 +33,6 @@ litellm_router = litellm.Router(
                 "api_base": "https://openai-endpoint.ishaanjaffer0324.workers.dev/",
             },
         },
-        {
-            "model_name": "gpt-3.5-turbo",
-            "litellm_params": {'model': 'azure/chatgpt-v-2', 'api_base': 'https://openai-gpt-4-test-v-1.openai.azure.com/', 'api_version': '2023-05-15', 'api_key': 'gm'},
-        },
-        {
-            "model_name": "gpt-3.5-turbo-large",
-            "litellm_params":  {'model': 'gpt-3.5-turbo-1106', 'api_key': 'sk'},
-        },
-        {
-            "model_name": "gpt-4",
-            "litellm_params":  {'model': 'gpt-3.5-turbo-1106', 'api_key': 'sk'},
-
-        },
-        {
-            "model_name": "sagemaker-completion-model",
-            'litellm_params': {'model': 'sagemaker/berri-benchmarking-Llama-2-70b-chat-hf-4', 'input_cost_per_second': 0.00042}
-
-        },
-        {
-            "model_name": "sagemaker-completion-model",
-            'litellm_params': {'model': 'sagemaker/berri-benchmarking-Llama-2-70b-chat-hf-4', 'input_cost_per_second': 0.00042}
-
-        },
-        {
-            "model_name": "sagemaker-completion-model",
-            'litellm_params': {'model': 'sagemaker/berri-benchmarking-Llama-2-70b-chat-hf-4', 'input_cost_per_second': 0.00042}
-
-        },
-        {
-            "model_name": "sagemaker-completion-model",
-            'litellm_params': {'model': 'sagemaker/berri-benchmarking-Llama-2-70b-chat-hf-4', 'input_cost_per_second': 0.00042}
-
-        },
-        {
-            "model_name": "sagemaker-completion-model",
-            'litellm_params': {'model': 'sagemaker/berri-benchmarking-Llama-2-70b-chat-hf-4', 'input_cost_per_second': 0.00042}
-
-        }
-
     ]
 )
 
