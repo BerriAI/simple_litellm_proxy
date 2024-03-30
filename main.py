@@ -62,15 +62,16 @@ litellm_client = AsyncOpenAI(
 @app.post("/openai/chat/completions")
 async def completion(request: Request):
     # this proxy uses the OpenAI SDK to call a fixed endpoint
+    data = {}
+    body = await request.body()
+    body_str = body.decode()
+    try:
+        data = ast.literal_eval(body_str)
+    except:
+        data = json.loads(body_str)
 
     response = await litellm_client.chat.completions.create(
-        model="anything",
-        messages=[
-            {
-                "role": "user",
-                "content": "hello who are you",
-            }
-        ],
+        **data
     )
 
     return response
