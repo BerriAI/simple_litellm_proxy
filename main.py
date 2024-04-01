@@ -12,6 +12,10 @@ import json
 import ast
 import openai
 from openai import AsyncOpenAI
+import os 
+from dotenv import load_dotenv
+load_dotenv()
+
 
 app = FastAPI()
 
@@ -54,9 +58,10 @@ async def completion(request: Request):
 
 
 litellm_client = AsyncOpenAI(
-    base_url="https://openai-endpoint.ishaanjaffer0324.workers.dev/",
+    base_url=os.environ.get("OPENAI_ENDPOINT"),
     api_key="sk-1234",
 )
+print("OAI BASE URL", os.environ.get("OPENAI_ENDPOINT"))
 
 # for completion
 @app.post("/openai/chat/completions")
