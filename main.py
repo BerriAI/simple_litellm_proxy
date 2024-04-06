@@ -57,6 +57,7 @@ async def completion(request: Request):
     return response
 
 
+
 litellm_client = AsyncOpenAI(
     base_url=os.environ.get("OPENAI_ENDPOINT"),
     api_key="sk-1234",
@@ -76,6 +77,23 @@ async def completion(request: Request):
         data = json.loads(body_str)
 
     response = await litellm_client.chat.completions.create(
+        **data
+    )
+
+    return response
+
+@app.post("/openai/embeddings")
+async def embeddings(request: Request):
+    # this proxy uses the OpenAI SDK to call a fixed endpoint - 
+    ### ROUTE THE REQUEST ###
+    data = {}
+    body = await request.body()
+    body_str = body.decode()
+    try:
+        data = ast.literal_eval(body_str)
+    except:
+        data = json.loads(body_str)
+    response = await litellm_client.embeddings.create(
         **data
     )
 
